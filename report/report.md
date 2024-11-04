@@ -87,14 +87,6 @@ The models were trained using the following settings:
 
 The following plots illustrate the training and validation accuracy and loss over epochs:
 
-[Image of accuracy and validation accuracy plot]
-
-[Image of loss and validation loss plot]
-
-## 7. Model Evaluation
-
-* **VGG19:** Achieved an accuracy of 97.75% on the test set. (Max was 98.7% when all layers were fully trained, we stayed with the first result)
-* **ResNet50:** Achieved an accuracy of 98.05% on the test set.
 
 **VGG 19 Training Figures**
 ![](figures/model_vgg_acc.png)
@@ -103,6 +95,12 @@ The following plots illustrate the training and validation accuracy and loss ove
 **ResNET50 Training Figures**
 ![](figures/model_resnet_acc.png)
 ![](figures/model_resnet_loss.png)
+
+## 7. Model Evaluation
+
+* **VGG19:** Achieved an accuracy of 97.75% on the test set. (Max was 98.7% when all layers were fully trained, we stayed with the first result)
+* **ResNet50:** Achieved an accuracy of 98.05% on the test set.
+
 
 ## 8. Model Ensembling
 
@@ -120,7 +118,7 @@ A confusion matrix was generated to analyze the types of errors made by the ense
 ![](figures/preds.png)
 ## 10. Conclusion
 
-This project successfully demonstrated the effectiveness of transfer learning and model ensembling for handwritten digit recognition. By fine-tuning pre-trained VGG19 and ResNet50 models and combining their predictions, a high accuracy of ``99.34%`` was achieved on the MNIST dataset.
+This project successfully demonstrated the effectiveness of transfer learning and model ensembling for handwritten digit recognition. By fine-tuning pre-trained VGG19 and ResNet50 models and combining their predictions, a high accuracy of ``99.0%`` was achieved on the MNIST dataset.
 
 **Potential improvements (Why not?):**
 
