@@ -10,11 +10,11 @@ This project develops an Ensembled deep learning model to classify hand-written 
 
 **Installation:**
 
-1. Clone the repository: `git clone <repository_url>`
+1. Clone the repository: `git clone https://github.com/Ouassim-Hamdani/Hand-Digit-Recognizer.git` or extract zip.
 2. Install dependencies: `pip install -r requirements.txt` or `make install`  if you have `make` installed
 3. Run the main script: `python src/main.py` or `make run`
 
-For a detailed description, analysis, and results, please refer to the full report: [report.md](report/report.md) or report.pdf in `report` folder.
+For a detailed description, analysis, and results, please refer to the full report: [report.md](report/report.md) or report.pdf in `report/report.pdf`.
 
 **Author :** Ouassim HAMDANI
 **Class :** Master 1 IIA - Techniques d’apprentissage artificiel
