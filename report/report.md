@@ -44,10 +44,13 @@ The data is provided in CSV (Comma Separated Values) format, found in `Data` Fol
 The pixels in the images are stored in row-major order. For example, `pixel31` corresponds to the pixel at row 1, column 3 of the 28x28 image matrix (using zero-based indexing).
 
 **Visualization of Some Samples:**
+
 ![](figures/samples.png)
 
 **Classes Balanace :**
+
 ![alt text](figures/classes.png)
+
 ## 4. Data Preprocessing
 
 The following preprocessing steps were applied to the data:
@@ -89,11 +92,15 @@ The following plots illustrate the training and validation accuracy and loss ove
 
 
 **VGG 19 Training Figures**
+
 ![](figures/model_vgg_acc.png)
+
 ![](figures/model_vgg_loss.png)
 
 **ResNET50 Training Figures**
+
 ![](figures/model_resnet_acc.png)
+
 ![](figures/model_resnet_loss.png)
 
 ## 7. Model Evaluation
@@ -115,7 +122,9 @@ A confusion matrix was generated to analyze the types of errors made by the ense
 
 
 **Visualizations of some predictions made by model :**
+
 ![](figures/preds.png)
+
 ## 10. Conclusion
 
 This project successfully demonstrated the effectiveness of transfer learning and model ensembling for handwritten digit recognition. By fine-tuning pre-trained VGG19 and ResNet50 models and combining their predictions, a high accuracy of ``99.0%`` was achieved on the MNIST dataset.
