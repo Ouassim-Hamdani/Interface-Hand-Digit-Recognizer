@@ -24,10 +24,10 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="handwritten-digit-recognition">Handwritten Digit Recognition </h1>
+<h1 id="super-handwritten-digit-recognition">Super Handwritten Digit Recognition </h1>
 <p><strong>Project by:</strong> Ouassim HAMDANI</p>
-<p><strong>Class:</strong> Master 1 IIA -  Techniques d’apprentissage artificiel</p>
-<p><strong>Date:</strong> November 3, 2024</p>
+<p><strong>Class:</strong> Master 1 IIA -  Multi-source Data Extraction</p>
+<p><strong>Date:</strong> November 5, 2024</p>
 <h2 id="1-introduction">1. Introduction </h2>
 <p>This project focuses on the classic problem of handwritten digit recognition. The goal is to develop a machine learning model capable of accurately classifying images of handwritten digits (0-9). This task has numerous real-world applications, including:</p>
 <ul>
@@ -54,10 +54,10 @@
 </ul>
 <p><strong>Pixel Representation:</strong></p>
 <p>The pixels in the images are stored in row-major order. For example, <code>pixel31</code> corresponds to the pixel at row 1, column 3 of the 28x28 image matrix (using zero-based indexing).</p>
-<p><strong>Visualization of Some Samples:</strong><br>
-<img src="figures/samples.png" alt=""></p>
-<p><strong>Classes Balanace :</strong><br>
-<img src="figures/classes.png" alt="alt text"></p>
+<p><strong>Visualization of Some Sampless:</strong></p>
+<p><img src="figures/samples.png" alt=""></p>
+<p><strong>Classes Balanace :</strong></p>
+<p><img src="figures/classes.png" alt="alt text"></p>
 <h2 id="4-data-preprocessing">4. Data Preprocessing </h2>
 <p>The following preprocessing steps were applied to the data:</p>
 <ul>
@@ -68,12 +68,13 @@
 <li><strong>Normalization:</strong> (Optional)  Pixel values were normalized to a range of 0-1 to improve model training.</li>
 </ul>
 <h2 id="5-model-selection">5. Model Selection </h2>
-<p>Two pre-trained models were selected for this project:</p>
+<p>Two pre-trained models were selected for this project alongside a trained CNN:</p>
 <ul>
 <li><strong>VGG19:</strong> A deep convolutional neural network with 19 layers, known for its good performance in image classification tasks.</li>
 <li><strong>ResNet50:</strong> A 50-layer residual network that uses skip connections to address the vanishing gradient problem, allowing for the training of very deep networks.</li>
+<li><strong>CNN:</strong> A convolutional neural network with three convolutional layers, each followed by a max-pooling layer, for feature extraction. The extracted features are then flattened and passed through two dense layers for classification.</li>
 </ul>
-<p>These models were chosen due to their proven effectiveness in image recognition and their availability in Keras. Both models were fine-tuned by:</p>
+<p>These models were chosen due to their proven effectiveness in image recognition and their availability in Keras. CNN model was trained, and the other models were fine-tuned by:</p>
 <ul>
 <li><strong>Removing the top layers:</strong> The original classification layers of the pre-trained models were removed, as they are specific to the ImageNet dataset.</li>
 <li><strong>Adding new layers:</strong> New fully connected layers were added to adapt the models to the MNIST dataset and the 10-class classification task.</li>
@@ -91,31 +92,43 @@
 </ul>
 <p><strong>Training History:</strong></p>
 <p>The following plots illustrate the training and validation accuracy and loss over epochs:</p>
-<p><strong>VGG 19 Training Figures</strong><br>
-<img src="figures/model_vgg_acc.png" alt=""><br>
-<img src="figures/model_vgg_loss.png" alt=""></p>
-<p><strong>ResNET50 Training Figures</strong><br>
-<img src="figures/model_resnet_acc.png" alt=""><br>
-<img src="figures/model_resnet_loss.png" alt=""></p>
+<p><strong>VGG 19 Training Figures</strong></p>
+<p><img src="figures/model_vgg_acc.png" alt=""></p>
+<p><img src="figures/model_vgg_loss.png" alt=""></p>
+<p><strong>ResNET50 Training Figures</strong></p>
+<p><img src="figures/model_resnet_acc.png" alt=""></p>
+<p><img src="figures/model_resnet_loss.png" alt=""></p>
+<p><strong>CNN Model Training Figures</strong></p>
+<p><img src="figures/model_cnn_acc.png" alt=""></p>
+<p><img src="figures/model_cnn_loss.png" alt=""></p>
+<p>No large overfitting was detected, thus no need for L1, L2 regulization, or dropout method.</p>
 <h2 id="7-model-evaluation">7. Model Evaluation </h2>
 <ul>
-<li><strong>VGG19:</strong> Achieved an accuracy of 97.75% on the test set. (Max was 98.7% when all layers were fully trained, we stayed with the first result)</li>
-<li><strong>ResNet50:</strong> Achieved an accuracy of 98.05% on the test set.</li>
+<li>
+<p><strong>VGG19:</strong> Achieved an accuracy of <code>97.67%</code> on the test set. (Max was <code>98.7%</code> when all layers were fully trained, we stayed with the first result)</p>
+</li>
+<li>
+<p><strong>ResNet50:</strong> Achieved an accuracy of <code>98.05%</code> on the test set.</p>
+</li>
+<li>
+<p><strong>CNN Model:</strong> Achieved an accuracy of <code>99.10%</code> on the test set.</p>
+</li>
 </ul>
 <h2 id="8-model-ensembling">8. Model Ensembling </h2>
-<p>To further improve performance, the two models were ensembled by averaging their predictions. This resulted in an accuracy of <strong>99.00%</strong> on the test set.</p>
+<p>To further improve performance, the models were ensembled by averaging their predictions. This resulted in an accuracy of <strong>99.20%</strong> on the test set.</p>
 <h2 id="9--analysis-of-errors">9.  Analysis of Errors </h2>
 <p>A confusion matrix was generated to analyze the types of errors made by the ensembled model. It revealed that the most common confusion was between digits similiar in handwritten shape (8,9) (1,7)...etc, which is understandable as these digits can have similar appearances in handwritten form.</p>
 <p><img src="figures/cm.png" alt=""></p>
-<p><strong>Visualizations of some predictions made by model :</strong><br>
-<img src="figures/preds.png" alt=""></p>
+<p><strong>Visualizations of some predictions made by model :</strong></p>
+<p><img src="figures/preds.png" alt=""></p>
 <h2 id="10-conclusion">10. Conclusion </h2>
-<p>This project successfully demonstrated the effectiveness of transfer learning and model ensembling for handwritten digit recognition. By fine-tuning pre-trained VGG19 and ResNet50 models and combining their predictions, a high accuracy of <code>99.0%</code> was achieved on the MNIST dataset.</p>
+<p>This project successfully demonstrated the effectiveness of transfer learning and model ensembling for handwritten digit recognition. By fine-tuning pre-trained VGG19 and ResNet50 models alongside training a full CNN model, and combining their predictions, a high accuracy of <code>99.20%</code> was achieved on the MNIST dataset.</p>
 <p><strong>Potential improvements (Why not?):</strong></p>
 <ul>
 <li><strong>Hyperparameter tuning:</strong> Explore different hyperparameter settings (e.g., learning rate, number of layers added, batch size) to potentially improve performance.</li>
 <li><strong>Different architectures:</strong> Experiment with other pre-trained models or custom CNN architectures.</li>
 <li><strong>More data augmentation:</strong>  Apply more aggressive data augmentation techniques or use a larger dataset.</li>
+<li><strong>Adding a 'Not A Number' Class</strong> : Since the only output the model can give is number, it will classify anything to a number, adding this class and retraining model on it, will let model be able to detect when non numbers are inserted.</li>
 </ul>
 
       </div>
