@@ -1,11 +1,11 @@
-# Handwritten Digit Recognition
+# Super Handwritten Digit Recognition
 
 **Project by:** Ouassim HAMDANI
 
-**Class:** Master 1 IIA -  Techniques d’apprentissage artificiel
+**Class:** Master 1 IIA -  Multi-source Data Extraction
 
 
-**Date:** November 3, 2024
+**Date:** November 5, 2024
 
 
 ## 1. Introduction
@@ -43,7 +43,7 @@ The data is provided in CSV (Comma Separated Values) format, found in `Data` Fol
 
 The pixels in the images are stored in row-major order. For example, `pixel31` corresponds to the pixel at row 1, column 3 of the 28x28 image matrix (using zero-based indexing).
 
-**Visualization of Some Samples:**
+**Visualization of Some Sampless:**
 
 ![](figures/samples.png)
 
@@ -64,12 +64,13 @@ The following preprocessing steps were applied to the data:
 
 ## 5. Model Selection
 
-Two pre-trained models were selected for this project:
+Two pre-trained models were selected for this project alongside a trained CNN:
 
 * **VGG19:** A deep convolutional neural network with 19 layers, known for its good performance in image classification tasks.
 * **ResNet50:** A 50-layer residual network that uses skip connections to address the vanishing gradient problem, allowing for the training of very deep networks.
+* **CNN:** A convolutional neural network with three convolutional layers, each followed by a max-pooling layer, for feature extraction. The extracted features are then flattened and passed through two dense layers for classification.
 
-These models were chosen due to their proven effectiveness in image recognition and their availability in Keras. Both models were fine-tuned by:
+These models were chosen due to their proven effectiveness in image recognition and their availability in Keras. CNN model was trained, and the other models were fine-tuned by:
 
 * **Removing the top layers:** The original classification layers of the pre-trained models were removed, as they are specific to the ImageNet dataset.
 * **Adding new layers:** New fully connected layers were added to adapt the models to the MNIST dataset and the 10-class classification task.
@@ -103,15 +104,25 @@ The following plots illustrate the training and validation accuracy and loss ove
 
 ![](figures/model_resnet_loss.png)
 
+**CNN Model Training Figures**
+
+![](figures/model_cnn_acc.png)
+
+![](figures/model_cnn_loss.png)
+
+No large overfitting was detected, thus no need for L1, L2 regulization, or dropout method.
+
 ## 7. Model Evaluation
 
-* **VGG19:** Achieved an accuracy of 97.75% on the test set. (Max was 98.7% when all layers were fully trained, we stayed with the first result)
-* **ResNet50:** Achieved an accuracy of 98.05% on the test set.
+* **VGG19:** Achieved an accuracy of `97.67%` on the test set. (Max was `98.7%` when all layers were fully trained, we stayed with the first result)
+* **ResNet50:** Achieved an accuracy of `98.05%` on the test set.
+
+* **CNN Model:** Achieved an accuracy of `99.10%` on the test set.
 
 
 ## 8. Model Ensembling
 
-To further improve performance, the two models were ensembled by averaging their predictions. This resulted in an accuracy of **99.00%** on the test set.
+To further improve performance, the models were ensembled by averaging their predictions. This resulted in an accuracy of **99.20%** on the test set.
 
 
 ## 9.  Analysis of Errors
@@ -127,12 +138,13 @@ A confusion matrix was generated to analyze the types of errors made by the ense
 
 ## 10. Conclusion
 
-This project successfully demonstrated the effectiveness of transfer learning and model ensembling for handwritten digit recognition. By fine-tuning pre-trained VGG19 and ResNet50 models and combining their predictions, a high accuracy of ``99.0%`` was achieved on the MNIST dataset.
+This project successfully demonstrated the effectiveness of transfer learning and model ensembling for handwritten digit recognition. By fine-tuning pre-trained VGG19 and ResNet50 models alongside training a full CNN model, and combining their predictions, a high accuracy of ``99.20%`` was achieved on the MNIST dataset.
 
 **Potential improvements (Why not?):**
 
 * **Hyperparameter tuning:** Explore different hyperparameter settings (e.g., learning rate, number of layers added, batch size) to potentially improve performance.
 * **Different architectures:** Experiment with other pre-trained models or custom CNN architectures.
 * **More data augmentation:**  Apply more aggressive data augmentation techniques or use a larger dataset.
+* **Adding a 'Not A Number' Class** : Since the only output the model can give is number, it will classify anything to a number, adding this class and retraining model on it, will let model be able to detect when non numbers are inserted.
 
 

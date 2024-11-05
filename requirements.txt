@@ -4,3 +4,7 @@ tensorflow
 matplotlib
 scikit-learn
 seaborn
+streamlit
+streamlit-drawable-canvas
+opencv-python
+opencv-contrib-python

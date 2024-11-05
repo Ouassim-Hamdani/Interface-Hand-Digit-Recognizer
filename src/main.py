@@ -5,7 +5,7 @@ import os
 def test_run():
     X,y = csv_to_numpy(os.path.join("data","test_gen.csv"))
     model = EnsembledModel()
-    model.predict_visualize(X[:12])
-
+    #model.predict_visualize(X[:12])
+    #print(model.evaluate(X,y))
 if __name__=="__main__":
     test_run()

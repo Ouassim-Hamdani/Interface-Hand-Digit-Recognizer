@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math,os
 from sklearn.metrics import accuracy_score,confusion_matrix
-from utils import check_and_normalize
+from utils import check_and_normalize,check_channels
 class EnsembledModel:
     """
     An ensemble model that combines predictions from two pre-trained and fine-tuned models: VGG19 and ResNet50.
@@ -34,7 +34,7 @@ class EnsembledModel:
             """
             self.model = tf.keras.models.load_model(os.path.join(models_path,'VGG19.keras'))  # Loading Finetunned VGG19 Model
             self.model_2 = tf.keras.models.load_model(os.path.join(models_path,'RESNET50.keras'))  # Loading Finetunned ResNet50 Model
-
+            self.model_3 = tf.keras.models.load_model(os.path.join(models_path,'CNN.keras'))
 
     def predict(self,X,return_labels=False):
         """
@@ -48,9 +48,11 @@ class EnsembledModel:
             numpy.ndarray: The predicted class probabilities or labels.
         """
         X = check_and_normalize(X)
+        X = check_channels(X)
         y_pred_1 = self.model.predict(X)
         y_pred_2 = self.model_2.predict(X)
-        y_pred = (y_pred_1+y_pred_2)/2
+        y_pred_3 = self.model_3.predict(X)
+        y_pred = (y_pred_1+y_pred_2+y_pred_3)/3
         if return_labels:
             return np.argmax(y_pred,axis=1)
         return y_pred

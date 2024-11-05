@@ -61,3 +61,23 @@ def check_and_normalize(X_input):
   else:
     print("Image is already normalized.")
   return X_input
+
+
+def check_channels(X):
+  """
+  Checks the last dimension of an array (channels dimension). 
+  If it's 1 (grayscale), it duplicates to make it 3 channels.
+
+  Args:
+    X: A NumPy array with shape (..., channels).
+
+  Returns:
+    A NumPy array with 3 channels in the last dimension.
+  """
+  if X.shape[-1] == 1:
+    X = np.repeat(X, 3, axis=-1)  # Duplicate the last axis (channels) 3 times
+  elif X.shape[-1] == 3:
+    pass
+  else:
+    raise ValueError("Channels of given input, is not 1 or 3")
+  return X
