@@ -3,7 +3,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math,os
 from sklearn.metrics import accuracy_score,confusion_matrix
-from utils import check_and_normalize,check_channels
+try:
+    from utils import check_and_normalize,check_channels #import where ssytem path is not modified (Normal execustion)
+except:
+    from src.utils import check_and_normalize,check_channels #System path is appended ../ so it's a step back, thus using src.utils, happens in trainign notebook where we used sys append ..
 class EnsembledModel:
     """
     An ensemble model that combines predictions from two pre-trained and fine-tuned models: VGG19 and ResNet50.
@@ -24,6 +27,9 @@ class EnsembledModel:
 
         predict_visualize(self, X): 
             Predicts the labels for the given input data and visualizes the predictions along with the input images.
+            
+        cm(self, X,y): 
+            Calculate Confusion Matrix for given X data, according to Y labels.
     """
     def __init__(self,models_path="models"):
             """
@@ -99,5 +105,14 @@ class EnsembledModel:
         plt.show()
     
     def cm(self,X,y):
+        """
+        Calculate confusion matrix on given X data, in comparison with y labels.
+        Args:
+            X (numpy.ndarray): The input data.
+            y (numpy.ndarray): The true labels.
+
+        Returns:
+            numpy.ndarray : 2D Matrix represnting CM.
+        """
         y_pred = self.predict(X,return_labels=True)
         return confusion_matrix(y,y_pred)

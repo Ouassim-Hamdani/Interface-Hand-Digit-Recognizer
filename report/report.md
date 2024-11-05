@@ -110,12 +110,12 @@ The following plots illustrate the training and validation accuracy and loss ove
 
 ![](figures/model_cnn_loss.png)
 
-No large overfitting was detected, thus no need for L1, L2 regulization, or dropout method.
+No overfitting was detected, thus no need for L1, L2 regulization, or dropout method.
 
 ## 7. Model Evaluation
 
-* **VGG19:** Achieved an accuracy of `97.67%` on the test set. (Max was `98.7%` when all layers were fully trained, we stayed with the first result)
-* **ResNet50:** Achieved an accuracy of `98.05%` on the test set.
+* **VGG19:** Achieved an accuracy of `97.68%` on the test set. (Max was `98.7%` when all layers were fully trained, we stayed with the first result)
+* **ResNet50:** Achieved an accuracy of `98.06%` on the test set.
 
 * **CNN Model:** Achieved an accuracy of `99.10%` on the test set.
 
@@ -124,8 +124,19 @@ No large overfitting was detected, thus no need for L1, L2 regulization, or drop
 
 To further improve performance, the models were ensembled by averaging their predictions. This resulted in an accuracy of **99.20%** on the test set.
 
+## 9. Full Benchmark Table
+Following table, showcases the results of a benchmark done on `the test data set` *(Model hasn't seen before)*, consisting of **8,400** sample.
 
-## 9.  Analysis of Errors
+| Model        | Accuracy (%)|
+|--------------|-------------|
+| VGG19        | 97.68       |
+| ResNet50     | 98.06       |
+| CNN          | 99.10       |
+| Ensembling   | ***99.20*** |
+
+
+
+## 10.  Analysis of Errors
 
 A confusion matrix was generated to analyze the types of errors made by the ensembled model. It revealed that the most common confusion was between digits similiar in handwritten shape (8,9) (1,7)...etc, which is understandable as these digits can have similar appearances in handwritten form.
 
@@ -136,7 +147,7 @@ A confusion matrix was generated to analyze the types of errors made by the ense
 
 ![](figures/preds.png)
 
-## 10. Conclusion
+## 11. Conclusion
 
 This project successfully demonstrated the effectiveness of transfer learning and model ensembling for handwritten digit recognition. By fine-tuning pre-trained VGG19 and ResNet50 models alongside training a full CNN model, and combining their predictions, a high accuracy of ``99.20%`` was achieved on the MNIST dataset.
 

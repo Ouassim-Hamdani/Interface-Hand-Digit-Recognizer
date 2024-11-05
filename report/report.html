@@ -101,14 +101,14 @@
 <p><strong>CNN Model Training Figures</strong></p>
 <p><img src="figures/model_cnn_acc.png" alt=""></p>
 <p><img src="figures/model_cnn_loss.png" alt=""></p>
-<p>No large overfitting was detected, thus no need for L1, L2 regulization, or dropout method.</p>
+<p>No overfitting was detected, thus no need for L1, L2 regulization, or dropout method.</p>
 <h2 id="7-model-evaluation">7. Model Evaluation </h2>
 <ul>
 <li>
-<p><strong>VGG19:</strong> Achieved an accuracy of <code>97.67%</code> on the test set. (Max was <code>98.7%</code> when all layers were fully trained, we stayed with the first result)</p>
+<p><strong>VGG19:</strong> Achieved an accuracy of <code>97.68%</code> on the test set. (Max was <code>98.7%</code> when all layers were fully trained, we stayed with the first result)</p>
 </li>
 <li>
-<p><strong>ResNet50:</strong> Achieved an accuracy of <code>98.05%</code> on the test set.</p>
+<p><strong>ResNet50:</strong> Achieved an accuracy of <code>98.06%</code> on the test set.</p>
 </li>
 <li>
 <p><strong>CNN Model:</strong> Achieved an accuracy of <code>99.10%</code> on the test set.</p>
@@ -116,12 +116,40 @@
 </ul>
 <h2 id="8-model-ensembling">8. Model Ensembling </h2>
 <p>To further improve performance, the models were ensembled by averaging their predictions. This resulted in an accuracy of <strong>99.20%</strong> on the test set.</p>
-<h2 id="9--analysis-of-errors">9.  Analysis of Errors </h2>
+<h2 id="9-full-benchmark-table">9. Full Benchmark Table </h2>
+<p>Following table, showcases the results of a benchmark done on <code>the test data set</code> <em>(Model hasn't seen before)</em>, consisting of <strong>8,400</strong> sample.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Accuracy (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VGG19</td>
+<td>97.68</td>
+</tr>
+<tr>
+<td>ResNet50</td>
+<td>98.06</td>
+</tr>
+<tr>
+<td>CNN</td>
+<td>99.10</td>
+</tr>
+<tr>
+<td>Ensembling</td>
+<td><em><strong>99.20</strong></em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="10--analysis-of-errors">10.  Analysis of Errors </h2>
 <p>A confusion matrix was generated to analyze the types of errors made by the ensembled model. It revealed that the most common confusion was between digits similiar in handwritten shape (8,9) (1,7)...etc, which is understandable as these digits can have similar appearances in handwritten form.</p>
 <p><img src="figures/cm.png" alt=""></p>
 <p><strong>Visualizations of some predictions made by model :</strong></p>
 <p><img src="figures/preds.png" alt=""></p>
-<h2 id="10-conclusion">10. Conclusion </h2>
+<h2 id="11-conclusion">11. Conclusion </h2>
 <p>This project successfully demonstrated the effectiveness of transfer learning and model ensembling for handwritten digit recognition. By fine-tuning pre-trained VGG19 and ResNet50 models alongside training a full CNN model, and combining their predictions, a high accuracy of <code>99.20%</code> was achieved on the MNIST dataset.</p>
 <p><strong>Potential improvements (Why not?):</strong></p>
 <ul>

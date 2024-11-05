@@ -1,7 +1,8 @@
 install:
-	pip install -r requirements.txt
+	@pip install -r requirements.txt
 run-main:
-	python src/main.py
-
+	@python src/main.py
 run-app:
-	streamlit run src/app.py
+	@streamlit run src/app.py
+docker:
+	@docker compose up --build
