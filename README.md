@@ -10,6 +10,8 @@ This project develops an Ensembled deep learning model to classify hand-written 
 
 **Installation:**
 
+
+**No Docker :**
 1. Clone the repository: `git clone https://github.com/Ouassim-Hamdani/Interface-Hand-Digit-Recognizer` or extract zip.
 2. Install dependencies: `pip install -r requirements.txt` or `make install`  if you have `make` installed.
 3. Either : 
@@ -17,6 +19,11 @@ This project develops an Ensembled deep learning model to classify hand-written 
     - Run the interface : `streamlit run src/app.py` or `make run-app`
 
 For a detailed description, analysis, and results, please refer to the full report: [report.md](report/report.md) or report.pdf in `report/report.pdf`.
+
+**Docker :**
+1. Clone the repository: `git clone https://github.com/Ouassim-Hamdani/Interface-Hand-Digit-Recognizer` or extract zip.
+2. Run `docker compose up --build` or `make docker` if you have `make` installed.
+
 
 **Author :** Ouassim HAMDANI
 **Class :** Master 1 IIA - Multi-source Data Extraction
