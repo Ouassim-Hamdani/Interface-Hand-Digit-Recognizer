@@ -12,7 +12,7 @@ This project develops a Super Ensembled deep learning model to classify hand-wri
 
 
 **No Docker :**
-1. Clone the repository: `git clone https://github.com/Ouassim-Hamdani/Interface-Hand-Digit-Recognizer` or extract zip.
+1. Clone the repository: `git clone https://github.com/Ouassim-Hamdani/Interface-Hand-Digit-Recognizer.git` or extract zip.
 2. Install dependencies: `pip install -r requirements.txt` or `make install`  if you have `make` installed.
 3. Either : 
     - Run the main script: `python src/main.py` or `make run-main`.
@@ -21,7 +21,7 @@ This project develops a Super Ensembled deep learning model to classify hand-wri
 For a detailed description, analysis, and results, please refer to the full report: [report.md](report/report.md) or report.pdf in `report/report.pdf`.
 
 **Docker :**
-1. Clone the repository: `git clone https://github.com/Ouassim-Hamdani/Interface-Hand-Digit-Recognizer` or extract zip.
+1. Clone the repository: `git clone https://github.com/Ouassim-Hamdani/Interface-Hand-Digit-Recognizer.git` or extract zip.
 2. Run `docker compose up --build` or `make docker` if you have `make` installed.
 
 **Note about Linux** : In case of a library error, run this command `apt-get install -y libgl1-mesa-glx` to install the necessary packages to execute (Already included in Docker).
