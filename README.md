@@ -26,6 +26,37 @@ For a detailed description, analysis, and results, please refer to the full repo
 
 **Note about Linux** : In case of a library error, run this command `apt-get install -y libgl1-mesa-glx` to install the necessary packages to execute (Already included in Docker).
 
+
+
+**Project Folder Architecture**
+
+```
+├── notebooks
+│   └── training_notebook.ipynb       # Jupyter notebook for training the model.
+├── models
+│   └── CNN.keras                     # Trained CNN Keras model.
+│   └── RESNET50.keras                # Trained ResNET50 Keras model.
+│   └── VGG19.keras                   # Trained VGG19 Keras model.
+├── data
+│   └── train.csv                     # Dataset used for training (CSV format).
+│   └── test_gen.csv                  # Generated Dataset used for testing (CSV format).
+├── report
+│   ├── report.pdf                    # Project report (PDF).
+│   ├── report.md                     # Project report (Markdown).
+│   ├── report.html                   # Project report (HTML).
+│   └── figures                       # Figures Folder used in the report.
+├── src
+│   ├── main.py                       # Main script for running the project & visualizing.
+│   ├── app.py                        # Script for the web interface application (Streamlit).
+│   ├── model.py                      # Ensembled Model architecture, class and prediction functions.
+│   └── utils.py                      # Utility functions.
+├── Dockerfile                        # Instructions for building a Docker image.
+├── docker-compose.yaml               # Instructions for orchestrating Docker containers.
+├── Makefile                          # Shortcuts for commands to build & run project.
+└── requirements.txt                  # Python packages required to run the project.
+```
+
+
 **Author :** Ouassim HAMDANI
 
 **Class :** Master 1 IIA - Multi-source Data Extraction
