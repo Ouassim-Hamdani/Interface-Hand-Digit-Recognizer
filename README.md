@@ -1,6 +1,6 @@
 # AI University Project: Classifying Hand-written Digits
 
-This project develops an Ensembled deep learning model to classify hand-written digits
+This project develops a Super Ensembled deep learning model to classify hand-written digits
 
 **Key Features:**
 
@@ -16,7 +16,7 @@ This project develops an Ensembled deep learning model to classify hand-written 
 2. Install dependencies: `pip install -r requirements.txt` or `make install`  if you have `make` installed.
 3. Either : 
     - Run the main script: `python src/main.py` or `make run-main`.
-    - Run the interface : `streamlit run src/app.py` or `make run-app`
+    - Run the interface : `streamlit run src/app.py` or `make run-app`.
 
 For a detailed description, analysis, and results, please refer to the full report: [report.md](report/report.md) or report.pdf in `report/report.pdf`.
 
@@ -24,6 +24,8 @@ For a detailed description, analysis, and results, please refer to the full repo
 1. Clone the repository: `git clone https://github.com/Ouassim-Hamdani/Interface-Hand-Digit-Recognizer` or extract zip.
 2. Run `docker compose up --build` or `make docker` if you have `make` installed.
 
+**Note about Linux** : In case of a library error, run this command `apt-get install -y libgl1-mesa-glx` to install the necessary packages to execute (Already included in Docker).
 
 **Author :** Ouassim HAMDANI
+
 **Class :** Master 1 IIA - Multi-source Data Extraction
